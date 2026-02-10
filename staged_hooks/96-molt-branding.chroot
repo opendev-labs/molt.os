@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "--- MOLTING: PURGING KALI REFERENCES ---"
+
+# Replace hostname
+echo "moltos" > /etc/hostname
+
+# Replace issue files
+echo "MoltOS Sovereign \n \l" > /etc/issue
+echo "MoltOS Sovereign \n \l" > /etc/issue.net
+
+# Replace os-release
+if [ -f /etc/os-release ]; then
+    sed -i 's/Kali GNU\/Linux/MoltOS Sovereign/g' /etc/os-release
+    sed -i 's/ID=kali/ID=moltos/g' /etc/os-release
+    sed -i 's/ID_LIKE=debian/ID_LIKE=debian/g' /etc/os-release
+    sed -i 's/HOME_URL="https:\/\/www.kali.org\/"/HOME_URL="https:\/\/molt-os.org\/"/g' /etc/os-release
+fi
+
+# Replace any mention of Kali in bashrc if not already done
+sed -i 's/Kali/MoltOS/g' /etc/bash.bashrc
+
+echo "--- MOLTING COMPLETE ---"
