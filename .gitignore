@@ -1,0 +1,13 @@
+# MoltOS 
+moltos.secrets
+*.log
+chroot/
+binary/
+images/
+cache/
+staged_hooks/
+*.deb
+*.iso
+.gemini/
+.system_generated/
+**/*.tmp
