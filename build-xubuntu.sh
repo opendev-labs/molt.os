@@ -57,7 +57,11 @@ sudo lb config \
     --bootappend-live "boot=live components quiet splash" \
     --memtest none
 
-# 5. Start the build
+# 5. Inject custom AgentOS configuration hooks
+echo "Injecting custom MoltOS AgentOS hooks and themes..."
+sudo cp -rv "$PROJECT_DIR/xubuntu-config/"* "$WORKSPACE/config/"
+
+# 6. Start the build
 echo -e "${ORANGE}${BOLD}Starting ISO build... This will take a while.${NC}"
 echo "Build log: $LOG_FILE"
 
